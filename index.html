@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
     <title>LAN Party Balcarce</title>
-    
 </head>
 <body>
     <div class="preloader">
         <div class="glitch-logo-container" id="glitchLogoContainer">
-            <img src="./img/logo/logo.png" alt="Logo de la Empresa" class="glitch-logo">
+            <img src="./img/logo/logo.png" alt="Logo LAN Party Balcarce" class="glitch-logo">
         </div><br>
         <div class="loader">
-  <div class="progress" data-percentage="100%"></div>
-</div>
+            <div class="progress" data-percentage="100%"></div>
+        </div>
     </div>
     
     <svg style="display: none;">
-        <filter id="glitch-filter">
+        <!-- Filtro base (sin distorsión) -->
+        <filter id="glitch-filter-base">
+            <feTurbulence type="fractalNoise" baseFrequency="0" numOctaves="1" result="noise" stitchTiles="stitch"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        
+        <!-- Filtro para glitch activo -->
+        <filter id="glitch-filter-active">
             <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="1" result="noise" stitchTiles="stitch"/>
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        
+        <!-- Filtro para móviles (menos intenso) -->
+        <filter id="glitch-filter-mobile">
+            <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="1" result="noise" stitchTiles="stitch"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
         </filter>
     </svg>
 
