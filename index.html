@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>LAN Party Balcarce</title>
+    
+</head>
+<body>
+    <div class="preloader">
+        <div class="glitch-logo-container" id="glitchLogoContainer">
+            <img src="./img/logo/logo.png" alt="Logo de la Empresa" class="glitch-logo">
+        </div><br>
+        <div class="loader">
+  <div class="progress" data-percentage="100%"></div>
+</div>
+    </div>
+    
+    <svg style="display: none;">
+        <filter id="glitch-filter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="1" result="noise" stitchTiles="stitch"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+    </svg>
+
+    <div class="content" style="display: none;">
+        <h1>¡Bienvenido a la Web!</h1>
+        <p>De Lan Party Balcarce.</p>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
