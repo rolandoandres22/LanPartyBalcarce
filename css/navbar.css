@@ -134,6 +134,8 @@ body.loaded .preloader {
   font-weight: bold;
   color: #ddebf0;
   text-transform: uppercase;
+  font-family: 'Russo One', sans-serif;
+  font-weight: 100;
 }
 
 #clip {
