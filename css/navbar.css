@@ -76,9 +76,9 @@ body.loaded .preloader {
 }
 @media (max-width: 1100px) {
     .main-logo {
+      align-items: center;
         text-align: center;
         top: 13px;
-        text-align: center;
     }
     .botin {
   width: 14em!important;
@@ -116,7 +116,7 @@ body.loaded .preloader {
         height: 3em;
     }
     .content {
-        margin-top: 150px;
+        margin-top: 10px;
     }
 }
 
