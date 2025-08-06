@@ -1,0 +1,271 @@
+/* inicio menu */
+
+/* Menú de navegación */
+/* Logo principal */
+.main-logo {
+    position: fixed;
+    top: 13px;
+    left: 20px;
+    width:250px;
+    height: auto;
+    z-index: 1001;
+    display: none;
+}
+
+.main-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Menú de navegación */
+/* Menú de navegación */
+.navbar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    display: none;
+    align-items: center;
+}
+/* Botón hamburguesa */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* Lista del menú */
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 33px 27px;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+
+/* Estilos de los botones (se mantienen iguales) */
+
+/* Contenido principal */
+.content {
+    padding: 20px;
+    text-align: center;
+    display: none;
+    margin-top: 120px; /* Espacio para el logo y menú */
+}
+
+/* Estado cargado */
+body.loaded .main-logo,
+body.loaded .navbar,
+body.loaded .content {
+    display: block;
+}
+
+body.loaded .preloader {
+    display: none;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 1200px) {
+.botin {
+  width: 12em!important;
+}
+}
+@media (max-width: 1100px) {
+    .main-logo {
+        text-align: center;
+        top: 13px;
+        text-align: center;
+    }
+    .botin {
+  width: 14em!important;
+}
+    
+    .navbar {
+        top: 50px;
+        right: 10px;
+    }
+    
+    /* Responsive */
+@media (max-width: 1100px) {
+    .menu-toggle {
+        display: block;
+        margin-right: 10px;
+    }
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px;
+        border-radius: 8px;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+    }
+    .navbar ul.show {
+        display: flex;
+    }
+    .botin {
+        width: 100%;
+        font-size: 14px;
+        height: 3em;
+    }
+    .content {
+        margin-top: 150px;
+    }
+}
+
+}
+
+.botin {
+  position: relative;
+  width: 13em;
+  height: 4em;
+  outline: none;
+  transition: 0.1s;
+  background-color: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ddebf0;
+  text-transform: uppercase;
+}
+
+#clip {
+  --color: #fff;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border: 5px double var(--color);
+  box-shadow: inset 0px 0px 10px #607b8f;
+  /* --webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); */
+}
+
+.arrow {
+  position: absolute;
+  transition: 0.2s;
+  /* background-color: #2761c3;#2761c3 */
+  background-color: #000;
+  top: 35%;
+  width: 11%;
+  height: 30%;
+}
+
+#leftArrow {
+  left: -13.5%;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+#rightArrow {
+  -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
+  left: 102%;
+}
+
+.botin:hover #rightArrow, .active #rightArrow{
+  background-color: #fff;
+  left: -15%;
+  animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+}
+
+.botin:hover #leftArrow, .active #leftArrow {
+  background-color: #fff;
+  left: 103%;
+  animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+}
+
+.corner {
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  background-color: transparent;
+  box-shadow: inset 1px 1px 8px transparent;
+  transform: scale(1) rotate(45deg);
+  transition: 0.2s;
+}
+
+#rightTop {
+  top: -1.98em;
+  left: 91%;
+}
+
+#leftTop {
+  top: -1.96em;
+  left: -3.0em;
+}
+
+#leftBottom {
+  top: 2.10em;
+  left: -2.15em;
+}
+
+#rightBottom {
+  top: 45%;
+  left: 88%;
+}
+
+.botin:hover .corner, .active .corner {
+  transform: scale(1.25) rotate(45deg);
+}
+
+.botin:hover #clip, .active #clip {
+  animation: 0.2s ease-in-out 0.55s both greenLight8;
+  --color: #fff;
+}
+
+@keyframes changeColor8 {
+  from {
+    background-color: #fff;
+  }
+
+  to {
+    background-color: #fff;
+  }
+}
+
+@keyframes lightEffect8 {
+  from {
+    box-shadow: 1px 1px 5px #fff;
+  }
+
+  to {
+    box-shadow: 0 0 2px #fff;
+  }
+}
+
+@keyframes greenLight8 {
+  from {
+  }
+
+  to {
+    /* box-shadow: inset 0px 0px 32px #ffffff; */
+      box-shadow: inset 0px 0px 19px #607b8f;
+
+  }
+}
+
+@keyframes leftArrow8 {
+  from {
+    transform: translate(0px);
+  }
+
+  to {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes rightArrow8 {
+  from {
+    transform: translate(0px);
+  }
+
+  to {
+    transform: translateX(-10px);
+  }
+}

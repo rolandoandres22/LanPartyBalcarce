@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const glitchContainer = document.getElementById('glitchLogoContainer');
+    const mainLogo = document.querySelector('.main-logo');
     const logoWidth = 250;
     const logoHeight = 250;
     const numSegments = 10;
@@ -108,12 +109,38 @@ document.addEventListener('DOMContentLoaded', function() {
         deactivateGlitch();
     }
 
-    // Iniciar
+    // Iniciar el efecto glitch
     startGlitchCycle();
 
+    // Simular carga (5 segundos)
     setTimeout(function() {
         stopGlitchCycle();
+        
+        // Ocultar preloader
         document.querySelector('.preloader').style.display = 'none';
+        
+        // Mostrar elementos principales con efecto
+        document.body.classList.add('loaded');
+        
+        // Efecto especial para el logo principal
+        if (mainLogo) {
+            mainLogo.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+            mainLogo.style.transform = 'scale(1.2)';
+            mainLogo.style.opacity = '0.8';
+            
+            setTimeout(() => {
+                mainLogo.style.transform = 'scale(1)';
+                mainLogo.style.opacity = '1';
+            }, 500);
+        }
+        
+        // Mostrar contenido principal
         document.querySelector('.content').style.display = 'block';
-    }, 5000);
+        
+    }, 5000); // Cambia este valor por tu tiempo real de carga
+});
+
+//codigo para el menu hamburguesa
+document.getElementById('menuToggle').addEventListener('click', () => {
+    document.querySelector('.navbar ul').classList.toggle('show');
 });

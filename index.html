@@ -7,6 +7,12 @@
     <title>LAN Party Balcarce</title>
 </head>
 <body>
+    <!-- Logo principal -->
+    <div class="main-logo">
+        <img src="./img/logo/logo-web.png" alt="Logo LAN Party Balcarce">
+    </div>
+
+    <!-- Preloader -->
     <div class="preloader">
         <div class="glitch-logo-container" id="glitchLogoContainer">
             <img src="./img/logo/logo.png" alt="Logo LAN Party Balcarce" class="glitch-logo">
@@ -16,29 +22,81 @@
         </div>
     </div>
     
+    <!-- Filtros SVG -->
     <svg style="display: none;">
-        <!-- Filtro base (sin distorsión) -->
         <filter id="glitch-filter-base">
             <feTurbulence type="fractalNoise" baseFrequency="0" numOctaves="1" result="noise" stitchTiles="stitch"/>
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
         </filter>
-        
-        <!-- Filtro para glitch activo -->
         <filter id="glitch-filter-active">
             <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="1" result="noise" stitchTiles="stitch"/>
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"/>
         </filter>
-        
-        <!-- Filtro para móviles (menos intenso) -->
         <filter id="glitch-filter-mobile">
             <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="1" result="noise" stitchTiles="stitch"/>
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
         </filter>
     </svg>
 
-    <div class="content" style="display: none;">
-        <h1>Proximamente...</h1>
-        <p>Lan Party Balcarce.</p>
+    <!-- Menú de navegación -->
+    <nav class="navbar">
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <ul>
+            <li>
+                <button class="botin active">Quienes somos
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </li>
+            <li>
+                <button class="botin">Participantes
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </li>
+            <li>
+                <button class="botin">Novedades
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </li>
+            <li>
+                <button class="botin">Contacto
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <h1>Próximamente...</h1>
+        <p>Lan Party Balcarce.</p><br>
     </div>
 
     <script src="./js/script.js"></script>

@@ -1,0 +1,176 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.glitch-logo-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: url(#glitch-filter-base); /* Filtro base sin distorsión */
+}
+
+.glitch-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.glitch-logo-container::before,
+.glitch-logo-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    pointer-events: none;
+    transition: clip 0.05s linear, transform 0.05s linear, opacity 0.1s linear;
+}
+
+.glitch-logo-container::before {
+    background-image: url('../img/logo/logo.png');
+    animation: glitch-line-1 1.8s steps(1, end) infinite alternate-reverse;
+    animation-delay: 0.2s;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.glitch-logo-container::after {
+    background-image: url('../img/logo/logo.png');
+    animation: glitch-line-2 1.8s steps(1, end) infinite alternate-reverse;
+    animation-delay: 0.4s;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+.glitch-logo-container::before {
+    transform: translateX(var(--glitch-line-1-x, 0px));
+    opacity: var(--glitch-line-1-opacity, 0);
+}
+
+.glitch-logo-container::after {
+    transform: translateX(var(--glitch-line-2-x, 0px));
+    opacity: var(--glitch-line-2-opacity, 0);
+}
+
+@keyframes glitch-line-1 {
+    0% { clip: rect(10px, 9999px, 50px, 0); }
+    10% { clip: rect(25px, 9999px, 120px, 0); }
+    20% { clip: rect(5px, 9999px, 80px, 0); }
+    30% { clip: rect(150px, 9999px, 240px, 0); }
+    40% { clip: rect(30px, 9999px, 60px, 0); }
+    50% { clip: rect(200px, 9999px, 250px, 0); }
+    60% { clip: rect(70px, 9999px, 180px, 0); }
+    70% { clip: rect(10px, 9999px, 30px, 0); }
+    80% { clip: rect(90px, 9999px, 140px, 0); }
+    90% { clip: rect(5px, 9999px, 210px, 0); }
+    100% { clip: rect(120px, 9999px, 190px, 0); }
+}
+
+@keyframes glitch-line-2 {
+    0% { clip: rect(200px, 9999px, 230px, 0); }
+    10% { clip: rect(40px, 9999px, 100px, 0); }
+    20% { clip: rect(10px, 9999px, 20px, 0); }
+    30% { clip: rect(180px, 9999px, 250px, 0); }
+    40% { clip: rect(70px, 9999px, 120px, 0); }
+    50% { clip: rect(0px, 9999px, 50px, 0); }
+    60% { clip: rect(160px, 9999px, 210px, 0); }
+    70% { clip: rect(30px, 9999px, 90px, 0); }
+    80% { clip: rect(220px, 9999px, 240px, 0); }
+    90% { clip: rect(0px, 9999px, 150px, 0); }
+    100% { clip: rect(100px, 9999px, 170px, 0); }
+}
+
+.glitch-segment {
+    position: absolute;
+    background-image: url('../img/logo/logo.png');
+    background-repeat: no-repeat;
+    background-size: 250px 250px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.05s linear, transform 0.05s linear, filter 0.05s linear;
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 22px;
+    background-color: #000000;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid white;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: progress-animation 5s ease-in-out forwards infinite;
+}
+
+.progress::after {
+    content: attr(data-percentage);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: black;
+}
+
+@keyframes progress-animation {
+    0% { width: 0%; }
+    25% { width: 25%; }
+    50% { width: 50%; }
+    75% { width: 75%; }
+    100% { width: 100%; }
+}
+
+@keyframes percentage-animation {
+    0% { content: "0%"; }
+    25% { content: "25%"; }
+    50% { content: "50%"; }
+    75% { content: "75%"; }
+    100% { content: "100%"; }
+}
+
+.progress::after {
+    animation: percentage-animation 5s ease-in-out forwards;
+}
+
+/* Media query para móviles */
+@media (max-width: 768px) {
+    .glitch-logo-container::before,
+    .glitch-logo-container::after {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Sombras más sutiles */
+    }
+}
+/* fin preloader */
