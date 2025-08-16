@@ -15,7 +15,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    
+
 }
 
 .content {
@@ -28,7 +28,7 @@ body {
     font-family: 'Russo One', sans-serif;
     text-align: center;
     color: #f8f8f8;
-    text-shadow: 0 0 5px #d8f7f6, 0 0 10px #0084ffc7;
+    text-shadow: 0 0 3px #d8f7f6, 0 0 5px #0084ffc7;
     font-size: 3em;
     margin-bottom: 20px;
 }
@@ -55,16 +55,17 @@ body {
 .stats-container {
     display: flex;
     justify-content: space-around;
-    margin: 40px 0;
+    margin: 50px 0;
+    margin-bottom: 60px;
 }
 
 .stat-box {
     text-align: center;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    padding: 20px;
+    padding: 20px 5px;
     border-radius: 5px;
     width: 30%;
-    box-shadow: 0 0 15px rgba(0,255,252,0.3);
+    box-shadow: 0 0 15px rgba(246, 249, 249, 0.3);
 }
 
 .stat-number {
@@ -95,7 +96,8 @@ body {
 
 .cta-box {
     background: #0f0f1a;
-    border: 2px solid #ff00aa;
+    /* border: 2px solid #ff00aa; */
+        border: 2px solid #fff;
     padding: 25px;
     text-align: center;
     margin-top: 40px;
@@ -130,29 +132,28 @@ justify-content: center;
     object-fit: contain;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(199, 246, 245, 0.5);
-}
-.nerds-image img{
-  padding-top: 20px;
-  margin-top: 20px;
+
 }
 /* Ajustes para el texto */
 .epic-intro {
     flex: 1; /* Ocupa el espacio restante */
     background: rgba(0,0,0,0.7);
     padding: 20px;
-    border-left: 5px solid #00fffc;
+    border-left: 5px solid #fdfdfd;
 }
 /* Responsive para móviles */
 @media (max-width: 768px) {
     .image-text-container {
         flex-direction: column;
     }
-    
+
     .nerds-image {
         width: 100%;
         max-width: 350px;
         margin: 0 auto;
+        margin-top: 20px;
     }
+
 }
 .h1{
   margin-top: 50px;
