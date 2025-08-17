@@ -111,9 +111,9 @@ body {
 }
 
 @keyframes glitch {
-    0% { text-shadow: 2px 0 #ff00aa; }
-    25% { text-shadow: -2px 0 #00fffc; }
-    50% { text-shadow: 2px 0 #ff00aa, -2px 0 #00fffc; }
+    0% { text-shadow: 1px 0 #ff00aa; }
+    25% { text-shadow: -1px 0 #00fffc; }
+    50% { text-shadow: 1px 0 #ff00aa, -1px 0 #00fffc; }
     100% { text-shadow: none; }
 }
 /* Contenedor para imagen y texto */
